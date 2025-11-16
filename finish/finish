@@ -1,0 +1,108 @@
+#!/usr/bin/env bash
+
+HERE=false
+TARGET_PATH=""
+
+# Help function
+show_help() {
+	cat << EOF
+Usage: finish [OPTIONS]
+
+Rename a specified path of a file or directory by appending "_COMPLETED"
+
+Options:
+	--here                Finish the current working directory
+	-p, --path PATH       Specify a file or directory's path
+	-h, --help            Show this help message and exit
+
+
+Examples:
+	finish --here                             Rename current directory
+	finish -p /path/to/directory-or-file      Rename specified directory or file
+EOF
+echo
+}
+
+# Function for error display and exit
+error_exit() {
+	echo "Error: $1" >&2
+	echo "Use 'finish --help' for more information." >&2
+	exit 1
+}
+
+rename_path() {
+	local original_path="$1"
+	local new_path="${original_path}_COMPLETED"
+
+	if [[ ! -e "$original_path" ]]; then
+		error_exit "Path '$original_path' does not exist"
+		echo
+	fi
+
+	if mv "$original_path" "$new_path"; then
+		echo "Successfully renamed '$original_path' to '$new_path'"
+		echo
+	else
+		error_exit "Failed to rename '$original_path'"
+		echo
+		echo
+	fi
+}
+
+
+
+# Parse command line arguments
+while [[ $# -gt 0 ]]; do
+
+	case $1 in 
+		-p|--path)
+			if [[ -n "$2" && "$2" != -* ]]; then
+				TARGET_PATH="$2"
+				shift 2
+			else
+				error_exit "The --path option requires an argument"
+				echo
+			fi
+			;;
+
+		--here)
+			HERE=true
+			shift
+			;;
+
+		-h|--help)
+			show_help
+			exit 0
+			;;
+
+		*)
+			error_exit "Unknown option: $1"
+			echo
+			;;
+
+	esac
+done
+
+
+# Main
+if $HERE; then
+	if [[ -n "$TARGET_PATH" ]]; then
+		error_exit "Cannot use both '--here' and '-p/--path' options together"
+		echo
+	fi
+	TARGET_PATH="$(pwd)"
+fi
+
+# If no arguments provided
+if [[ $# -eq 0 && -z "$TARGET_PATH" ]]; then
+	show_help
+	exit 0
+fi
+
+# If empty TARGET_PATH
+if [[ -z "$TARGET_PATH" ]]; then
+	error_exit "No target directory or file specified. Use --here or -p/--path to specify what to finish"
+fi
+
+# Perform rename
+rename_path "$TARGET_PATH"
