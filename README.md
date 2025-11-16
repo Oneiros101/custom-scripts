@@ -1,6 +1,7 @@
 # custom-scripts
 
 This directory contains a collection of small custom-scripts for your everyday troubleshooting.
+The scripts themselves are to be stored in /usr/local/bin directory.
 
 ## Structure
 
