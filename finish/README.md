@@ -51,8 +51,3 @@ Successfully renamed '/home/user/myproject' to '/home/user/myproject_COMPLETED'
 ```
 
 ------------------------------------------------------------------------
-
-## License
-
-This script is provided as-is for educational and practical use. Feel
-free to modify and distribute.
