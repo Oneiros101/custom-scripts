@@ -16,4 +16,4 @@ It supports two modes:
 
 -   **--here**: Marks the current working directory as completed
 -   **--path PATH**: Marks a specific file or directory as completed
-------------------------------------------------------------------------------------------
+
