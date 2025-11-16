@@ -49,5 +49,3 @@ finish -p /path/to/directory-or-file
 $ finish -p /home/user/myproject
 Successfully renamed '/home/user/myproject' to '/home/user/myproject_COMPLETED'
 ```
-
-------------------------------------------------------------------------
