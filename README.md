@@ -8,6 +8,8 @@
     custom-scripts/
     └── finish/
         └── finish.sh
+    └── content-to-clipboard/
+        └── content-to-clipboard.sh
 
 ## finish/finish.sh
 
