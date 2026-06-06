@@ -48,8 +48,9 @@ rename_path() {
 		suffix="_PARTIALLY_COMPLETED"
 	fi
 
+	# If 'original_path' has an underscore
 	if [[ "$original_path" == *_* ]]; then
-		base="${original_path%%_*}"
+		base="${original_path%%_*}"   # removes the nearest underscore
 		new_path="${base}${suffix}"
 	else
 		new_path="${original_path}${suffix}"
