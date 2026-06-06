@@ -10,14 +10,4 @@
         └── finish.sh
     └── content-to-clipboard/
         └── content-to-clipboard.sh
-
-## finish/finish.sh
-
-The `finish.sh` script renames a specified file or directory by
-appending `_COMPLETED` to its name.\
-It supports two modes:
-
--   **--here**: Marks the current working directory as completed
-    **--partial**: Marks the current working directory as partially completed
--   **--path PATH**: Marks a specific file or directory as completed
 ----------------------------------------------------------------------
