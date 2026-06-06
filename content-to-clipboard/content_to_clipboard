@@ -2,6 +2,8 @@
 
 show_help() {
 	cat << EOF
+Copies the content of a file into the clipboard.
+
 Usage: $0 <filename>
 EOF
 }
