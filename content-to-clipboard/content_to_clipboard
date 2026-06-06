@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+PS4='+${LINENO}: '
+
 show_help() {
 	cat << EOF
 Copies the content of a file into the clipboard.

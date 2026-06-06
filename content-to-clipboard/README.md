@@ -1,11 +1,12 @@
 # content_to_clipboard
 
 `content_to_clipboard` is a simple Bash script that copies the entire contents of a specified file directly to your system clipboard using `xclip`.
+`content_to_clipboard` needs to be moved to `/usr/local/bin` to be globally accessed in the terminal.
 
 ## Usage
 
 ``` bash
-./content_to_clipboard <filename>
+content_to_clipboard <filename>
 ```
 
 If no filename is provided, the script will show a brief help message.
