@@ -35,13 +35,26 @@ error_exit() {
 	exit 1
 }
 
+# The function that renames path or current working directory
 rename_path() {
 	local original_path="$1"
+	local previous_path=""
+	local new_path=""
 
-	if "$PARTIAL"; then
-		local new_path="${original_path}_PARTIALLY_COMPLETED"
+	if ! "$PARTIAL"; then
+		if [[ "$original_path" == *_* ]]; then
+			previous_path="${original_path%%_*}"
+			new_path="${previous_path}_COMPLETED"
+		else
+			new_path="${original_path}_COMPLETED"
+		fi
 	else
-		new_path="${original_path}_COMPLETED"
+		if [[ "$original_path" == *_* ]]; then
+			previous_path="${original_path%%_*}"
+			new_path="${previous_path}_PARTIALLY_COMPLETED"
+		else
+			new_path="${original_path}_PARTIALLY_COMPLETED"
+		fi
 	fi
 
 	if [[ ! -e "$original_path" ]]; then
