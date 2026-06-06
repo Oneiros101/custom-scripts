@@ -18,6 +18,7 @@ Rename a specified path of a file or directory by appending`_COMPLETED`.
 | Option            | Description                                   |
 | ----------------- | --------------------------------------------- |
 | `--here`          | Finish (rename) the current working directory |
+| `--partial`       | Marks the current working directory as partially completed                                                                 |
 | `-p, --path PATH` | Specify a file or directory's path            |
 | `-h, --help`      | Show the help message and exit                |
 
@@ -25,10 +26,13 @@ Rename a specified path of a file or directory by appending`_COMPLETED`.
 ## Examples
 
 ``` bash
-# Rename current working directory
+# Mark as completed current working directory
 finish --here
 
-# Rename a specific file or directory
+# Mark current directory as partially completed 
+finish --partial
+
+# Mark as completed a specific file or directory
 finish -p /path/to/directory-or-file
 ```
 
@@ -40,6 +44,7 @@ finish -p /path/to/directory-or-file
 -   Displays an error message if the path does not exist or if renaming
     fails.
 -   Ensures mutually exclusive use of `--here` and `--path`.
+-   When `--partial` is invoked, it appends `_PARTIALLY_COMPLETED` in the current working directory.
 
 ------------------------------------------------------------------------
 
