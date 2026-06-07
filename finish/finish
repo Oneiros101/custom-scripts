@@ -40,20 +40,20 @@ rename_path() {
 	local original_path="$1"
 	local base=""
 	local new_path=""
-	local suffix=""
+	local state=""
 
 	if ! "$PARTIAL"; then
-		suffix="_COMPLETED"
+		state="_COMPLETED"
 	else
-		suffix="_PARTIALLY_COMPLETED"
+		state="_PARTIALLY_COMPLETED"
 	fi
 
 	# If 'original_path' has an underscore
 	if [[ "$original_path" == *_* ]]; then
 		base="${original_path%%_*}"   # removes the nearest underscore
-		new_path="${base}${suffix}"
+		new_path="${base}${state}"
 	else
-		new_path="${original_path}${suffix}"
+		new_path="${original_path}${state}"
 	fi
 
 	if [[ ! -e "$original_path" ]]; then
