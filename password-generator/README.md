@@ -1,4 +1,4 @@
-# Password Generator (Bash)
+# Password Generator
 
 A simple Bash script that generates a random password of a specified length and validates that the generated password contains:
 
