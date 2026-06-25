@@ -26,6 +26,7 @@ create_password() {
 
 is_valid() {
 	local pwd="$1"
+	local special_chars="!@#$%^&*()_+"
 	local pwd_length="${#pwd}"
 	local upper_count=0
 	local lower_count=0
@@ -57,8 +58,7 @@ password=$(create_password)
 if is_valid "${password}"; then
 	echo "Password: ${password}"
 else
-	printf "\nERROR: %s${password}\n"
-	printf "This generated password is missing either an uppercase, lowercase, digit, or a special character.\n"
+	printf "\nERROR: Password '%s' is missing either an uppercase, lowercase, digit, or a special character.\n" "${password}"
 	printf "Generate another password.\n\n"
 	exit 1
 fi
