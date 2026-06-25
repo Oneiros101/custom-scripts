@@ -10,4 +10,6 @@
         └── finish.sh
     └── content-to-clipboard/
         └── content-to-clipboard.sh
+    └── password-generator/
+        └── password-generator.sh
 ----------------------------------------------------------------------
