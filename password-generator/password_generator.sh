@@ -26,7 +26,6 @@ create_password() {
 
 is_valid() {
 	local pwd="$1"
-	local special_chars="!@#$%^&*()_+"
 	local pwd_length="${#pwd}"
 	local upper_count=0
 	local lower_count=0
@@ -43,6 +42,7 @@ is_valid() {
 		fi
 	done
 
+	# A bit of an overkill, but this is ensure the presence of all the requirements
 	if [[ "${upper_count}" -gt 0 ]] &&\
 		 [[ "${lower_count}" -gt 0 ]] &&\
 		 [[ "${number_count}" -gt 0 ]] &&\
