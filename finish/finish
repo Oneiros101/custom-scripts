@@ -22,7 +22,7 @@ Options:
 
 Examples:
 	finish --here                             Completes current directory
-	finish --partial													Partially completes current directory
+	finish --partial                          Partially completes current directory
 	finish -p /path/to/directory-or-file      Completes specified directory or file
 EOF
 echo
